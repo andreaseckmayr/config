@@ -1,3 +1,6 @@
+" andreas eckmayr
+" 2019-11-25
+
 " use vim mode
 set nocompatible
 
