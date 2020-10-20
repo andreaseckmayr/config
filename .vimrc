@@ -182,3 +182,6 @@ let g:autoformat_remove_trailing_spaces = 0
 
 " vim-latex
 let g:tex_flavor = 'latex'
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
