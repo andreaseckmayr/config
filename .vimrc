@@ -1,5 +1,45 @@
 " andreas eckmayr
-" 2019-11-25
+" 2020-10-19
+
+" plugins
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'tpope/vim-markdown'
+" Plugin 'vim-latex/vim-latex'
+Plugin 'lervag/vimtex'
+Plugin 'scrooloose/syntastic'
+Plugin 'chiel92/vim-autoformat'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'ajh17/spacegray.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
 
 " use vim mode
 set nocompatible
@@ -26,7 +66,7 @@ set showmatch " highlight matching braces
 set showmode " show insert/replace/visual mode
 set showcmd " show incomplete cmds down the bottom
 set history=1000 " store :cmd history
-" set visualbell " blink on error instead of beeping (grr)
+set visualbell " blink on error instead of beeping (grr)
 set laststatus=2 " status bar
 set ruler " show file stats
 " set autoread " reload file changes outside vim
@@ -49,6 +89,7 @@ set nowb
 set noswapfile
 
 " edit settings
+set spell " spellchecking
 set expandtab " fill tabs with spaces
 set nojoinspaces " no extra space after '.' when joining lines
 set noshiftround
@@ -94,6 +135,8 @@ inoremap <F4> <Esc>mqggVG='qzza
 vnoremap <F5> :sort i<CR>
 nnoremap <F5> Vip:sort i<CR>
 
+map <F7> gg=G<C-o><C-o>
+
 " press f8 to toggle search results highlight
 noremap <F8> :nohl<CR>
 inoremap <F8> <Esc>:nohl><CR>a
@@ -111,3 +154,31 @@ set listchars=tab:▸\ ,eol:¬,space:␣,nbsp:·,trail:~,extends:>,precedes:<
 " uncomment this to enable by default:
 " set list " To enable by default
 " or use f12 to toggle on/off
+
+" easy align settings
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+" theme
+let g:airline_theme='simple'
+colorscheme spacegray
+let g:spacegray_underline_search = 1
+let g:spacegray_use_italics = 1
+let g:spacegray_low_contrast = 1
+
+" syntastic
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+
+" vim-autoformat
+noremap <F3> :Autoformat<CR>
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+let g:autoformat_remove_trailing_spaces = 0
