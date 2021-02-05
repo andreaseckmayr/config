@@ -1,6 +1,3 @@
-" andreas eckmayr
-" 2020-10-19
-
 " plugins
 set nocompatible              " be iMproved, required
 filetype off                  " required
